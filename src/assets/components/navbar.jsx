@@ -15,21 +15,20 @@ const navbar = () => {
             <div className="nav-links">
                 <div className="Profile-icon">
                     <MdAccountBox />
-                    <span>Profile</span>
+                    <a href=''>Profile</a>
                 </div>
                 <div className="Favorite-icon">
                     <MdFavorite />
-                    <span>Favortie</span>
-
+                    <a href=''>Favortie</a>
                 </div>
                 <div className="Cosul-icon">
                     <FaShoppingCart />
-                    <span>Cosul</span>
+                    <a href=''>Cosul</a>
 
                 </div>
-                <div className="locatipn-icon">
+                <div className="location-icon">
                     <FaLocationPin />
-                    <span>Dealeri</span>
+                    <a href=''>Dealeri</a>
                 </div>
 
                 

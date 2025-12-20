@@ -7,9 +7,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <main style={{ paddingTop: "80px" }}>
-        {/* restul paginii */}
-      </main>
+      
     </div>
   )
 }
