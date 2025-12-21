@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import './contulmeu.css'
 
 const Contulmeu = () => {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <div className="page-auth">
 
@@ -12,8 +18,17 @@ const Contulmeu = () => {
           <h1>Contul meu</h1>
           <p>User-ul tau</p>
 
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="Username"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+          />
+
           <button>Logare</button>
 
           <p className="switch-text">
@@ -30,6 +45,7 @@ const Contulmeu = () => {
           <input type="text" placeholder="Username" />
           <input type="password" placeholder="Password" />
           <input type="password" placeholder="Confirm password" />
+
           <button>Inregistrare</button>
         </div>
 
@@ -40,3 +56,4 @@ const Contulmeu = () => {
 }
 
 export default Contulmeu
+
