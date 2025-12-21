@@ -4,6 +4,7 @@ import { MdAccountBox } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const navbar = () => {
   return (
@@ -15,20 +16,19 @@ const navbar = () => {
             <div className="nav-links">
                 <div className="Profile-icon">
                     <MdAccountBox />
-                    <a href=''>Profile</a>
+                    <a href='/contulmeu'>Contul meu</a>
                 </div>
                 <div className="Favorite-icon">
                     <MdFavorite />
-                    <a href=''>Favortie</a>
+                    <a href='/favorite'>Favorite</a>
                 </div>
                 <div className="Cosul-icon">
                     <FaShoppingCart />
-                    <a href=''>Cosul</a>
-
+                    <a href='/cart'>Cosul</a>
                 </div>
                 <div className="location-icon">
                     <FaLocationPin />
-                    <a href=''>Dealeri</a>
+                    <a href='/dealeri'>Dealeri</a>
                 </div>
 
                 
