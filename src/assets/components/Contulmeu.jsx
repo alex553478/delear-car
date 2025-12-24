@@ -1,59 +1,48 @@
-import React, { useEffect, useRef } from 'react'
-import './contulmeu.css'
+import { useState } from 'react'
 
-const Contulmeu = () => {
-  const inputRef = useRef(null);
+export default function Contulmeu() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [msg, setMsg] = useState('')
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
+  const register = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      })
+
+      const data = await res.json()
+      setMsg(data.message)
+    } catch (e) {
+      console.error(e)
+      setMsg('Eroare server')
+    }
+  }
 
   return (
-    <div className="page-auth">
+    <div style={{ padding: 40 }}>
+      <h1>Inregistrare</h1>
 
-      <div className="auth-card">
+      <input
+        placeholder="Username"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+      />
+      <br /><br />
 
-        {/* LOGIN */}
-        <div className="auth-section">
-          <h1>Contul meu</h1>
-          <p>User-ul tau</p>
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+      />
+      <br /><br />
 
-          <input
-            ref={inputRef}
-            type="text"
-            placeholder="Username"
-          />
+      <button onClick={register}>Inregistrare</button>
 
-          <input
-            type="password"
-            placeholder="Password"
-          />
-
-          <button>Logare</button>
-
-          <p className="switch-text">
-            Daca nu ai un cont poti sa te inscrii. <span>Aici!</span>
-          </p>
-        </div>
-
-        {/* REGISTER */}
-        <div className="auth-section">
-          <h1>Inregistrare</h1>
-
-          <input type="text" placeholder="Nume complet" />
-          <input type="number" placeholder="Phone number" />
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <input type="password" placeholder="Confirm password" />
-
-          <button>Inregistrare</button>
-        </div>
-
-      </div>
-
+      <p>{msg}</p>
     </div>
   )
 }
-
-export default Contulmeu
-
