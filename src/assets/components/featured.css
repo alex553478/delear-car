@@ -20,11 +20,8 @@
   max-width: 1200px;
   height: 70vh;
   min-height: 520px;
-  margin: 0 auto;
-  border-radius: 22px;
-  overflow: hidden;
+  max-width: 900px;      /* 🔥*/
 }
-
 .featuredImg {
   width: 100%;
   height: 100%;
