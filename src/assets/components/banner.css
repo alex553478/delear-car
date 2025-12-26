@@ -1,0 +1,35 @@
+.banner {
+    width: 250vh;
+    height: 75vh;
+    background: url("https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1600") no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.banner-content h1 {
+    font-size: 100px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.banner-content p {
+    font-size: 32px;
+    margin: 10px 0 0 0;
+}
+
+.banner-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 24px;
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+
+}
