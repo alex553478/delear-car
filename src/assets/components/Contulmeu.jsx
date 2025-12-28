@@ -43,39 +43,58 @@ const Contulmeu = () => {
   }
 
   return (
-    <div className="page-auth">
-      <div className="auth-card">
+    
+  <div className="account-page">
+      
+    {!logged ? (
+      <div className="forms-wrapper">
 
-        {!logged ? (
-          <div className="auth-section">
-            <h1>Contul meu</h1>
+        {/* LOGIN */}
+        <div className="form-card">
+          <h2>Autentificare</h2>
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="Username"
+            value={loginUsername}
+            onChange={(e)=>setLoginUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Parola"
+            value={loginPassword}
+            onChange={(e)=>setLoginPassword(e.target.value)}
+          />
+          <button onClick={handleLogin}>Logare</button>
+          <p className="msg">{loginMsg}</p>
+        </div>
 
-            <input ref={inputRef} type="text" placeholder="Username" value={loginUsername} onChange={e=>setLoginUsername(e.target.value)} />
-            <input type="password" placeholder="Password" value={loginPassword} onChange={e=>setLoginPassword(e.target.value)} />
-            <button onClick={handleLogin}>Logare</button>
-            <p>{loginMsg}</p>
-
-            <h2>Inregistrare</h2>
-            <input type="text" placeholder="Nume" value={name} onChange={e=>setName(e.target.value)} />
-            <input type="number" placeholder="Telefon" value={phone} onChange={e=>setPhone(e.target.value)} />
-            <input type="text" placeholder="Username" value={regUsername} onChange={e=>setRegUsername(e.target.value)} />
-            <input type="password" placeholder="Parola" value={regPassword} onChange={e=>setRegPassword(e.target.value)} />
-            <input type="password" placeholder="Confirma parola" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} />
-            <button onClick={handleRegister}>Creează Cont</button>
-            <p>{regMsg}</p>
-          </div>
-        ) : (
-          <div className="auth-section">
-            <h1>Bun venit, {userData.name} 👋</h1>
-            <p>User: {userData.username}</p>
-            <p>ID Cont: #{userData.id}</p>
-            <button onClick={logoutUser}>Logout</button>
-          </div>
-        )}
+        {/* REGISTER */}
+        <div className="form-card">
+          <h2>Creare cont</h2>
+          <input type="text" placeholder="Nume" value={name} onChange={e=>setName(e.target.value)} />
+          <input type="number" placeholder="Telefon" value={phone} onChange={e=>setPhone(e.target.value)} />
+          <input type="text" placeholder="Username" value={regUsername} onChange={e=>setRegUsername(e.target.value)} />
+          <input type="password" placeholder="Parola" value={regPassword} onChange={e=>setRegPassword(e.target.value)} />
+          <input type="password" placeholder="Confirma parola" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} />
+          <button onClick={handleRegister}>Creează Cont</button>
+          <p className="msg">{regMsg}</p>
+        </div>
 
       </div>
-    </div>
-  )
+    ) : (
+      <div className="logged-in">
+        <h2>Bun venit, <span>{userData.name}</span> 👋</h2>
+        <p><strong>Username:</strong> {userData.username}</p>
+        <p><strong>ID Cont:</strong> #{userData.id}</p>
+        <button className="logout-btn" onClick={logoutUser}>Logout</button>
+      </div>
+    )}
+
+  </div>
+);
+
+  
 }
 
 export default Contulmeu

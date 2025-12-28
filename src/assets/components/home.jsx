@@ -8,7 +8,7 @@ import Footer from "./footer.jsx"
 const Home = () => {
   return (
     <div style={{ marginTop: "100px" }}>
-      <h1>Delear auto</h1>
+      
       <Banner />
       <Featured />
       <Twobanner />

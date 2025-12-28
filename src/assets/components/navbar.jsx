@@ -1,54 +1,48 @@
-import React, { useContext } from 'react'
-import './navbar.css'
-import { MdAccountBox, MdFavorite } from "react-icons/md";
-import { FaShoppingCart, FaHome } from "react-icons/fa";
-import { FaLocationPin } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
-import { AuthContext } from "../../context/AuthContext.jsx";
+import React, { useContext } from "react";
+import "./navbar.css";
+import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { MdAccountBox } from "react-icons/md";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
   const { logged, userData, logoutUser } = useContext(AuthContext);
 
   return (
     <div className="navbar">
-      <h2>Dealer Auto</h2>
-
-      <input type="text" placeholder="Search car..." />
-      <button>Search</button>
+      <h2 className="tittle">Dealer Auto</h2>
 
       <div className="nav-links">
-
         <Link to="/" className="icon-item">
           <FaHome /> Home
         </Link>
 
-        <Link to="/contulmeu" className="icon-item">
+        <Link to="/masini" className="icon-item">
+          Mașini de vânzare
+        </Link>
+
+        <Link to="/finantare" className="icon-item">
+          Finanțare
+        </Link>
+
+        <Link to="/contact" className="icon-item">
+          Contact
+        </Link>
+
+        <Link to="/contulmeu" className="icon-item account-link">
           <MdAccountBox />
-          {!logged ? "Contul meu" : `👋 ${userData.name}`}
+          {logged ? `👋 ${userData.name}` : "Contul meu"}
         </Link>
 
-        <Link to="/favorite" className="icon-item">
-          <MdFavorite /> Favorite
-        </Link>
-
-        <Link to="/cart" className="icon-item">
-          <FaShoppingCart /> Coșul
-        </Link>
-
-        <Link to="/dealeri" className="icon-item">
-          <FaLocationPin /> Dealeri
-        </Link>
-
+        {/* 🔥 AICI APARE LOGOUT DOAR DACĂ ESTE LOGAT */}
         {logged && (
           <button className="logout-btn" onClick={logoutUser}>
             🚪 Logout
           </button>
         )}
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
-
+export default Navbar;
