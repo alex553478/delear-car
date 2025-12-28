@@ -28,6 +28,9 @@ const Navbar = () => {
         <Link to="/contact" className="icon-item">
           Contact
         </Link>
+        <Link to="/calculator" className="icon-item">
+          Calculator Rate
+        </Link>
 
         <Link to="/contulmeu" className="icon-item account-link">
           <MdAccountBox />

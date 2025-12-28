@@ -63,6 +63,9 @@ const Finantare = () => {
 
         <button type="submit">Trimite aplicația</button>
       </form>
+      
+
+      
     </div>
   );
 };
