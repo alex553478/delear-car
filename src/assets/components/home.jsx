@@ -1,6 +1,9 @@
 import React from "react";
 import Banner from "./banner.jsx";
 import Featured from "./featured.jsx";
+import Twobanner from "./twobanner.jsx"
+import Footer from "./footer.jsx"
+
 
 const Home = () => {
   return (
@@ -8,7 +11,8 @@ const Home = () => {
       <h1>Delear auto</h1>
       <Banner />
       <Featured />
-      
+      <Twobanner />
+      <Footer />
       
     </div>
   );

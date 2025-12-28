@@ -1,0 +1,55 @@
+.another-banner {
+  width: 100vw;
+  height: 100vh;
+  background: url("https://images.pexels.com/photos/401940/parking-lot-cars-parking-cars-401940.jpeg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.another-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.another-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 70%;
+  color: white;
+}
+
+.another-banner-content h1 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.another-banner-content p {
+  font-size: 22px;
+  margin: 10px 0;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.another-banner-content button {
+  margin-top: 20px;
+  padding: 14px 32px;
+  background: #ff2e2e;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.another-banner-content button:hover {
+  background: #b80000;
+  transform: scale(1.05);
+}
