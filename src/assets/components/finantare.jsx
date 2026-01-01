@@ -16,34 +16,37 @@ const Finantare = () => {
     setForm({...form, [e.target.name]: e.target.value});
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Formular trimis:", form);
-    alert("Cererea a fost trimisă! 📝");
+
+    const res = await fetch("http://localhost:5000/finantare", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form)
+    });
+
+    const data = await res.json();
+    alert(data.message);
   };
 
   return (
     <div className="finantare-container">
       <h2>💸 Finanțare Auto</h2>
-      <p>Completează formularul pentru verificare eligibilitate</p>
+      <p>Completează formularul pentru verificarea eligibilității</p>
 
       <form className="finantare-form" onSubmit={handleSubmit}>
-
+        
         <label>Informații venituri</label>
-        <input name="venituri" type="text" placeholder="Salariat / Pensionar / Contract UE"
-          onChange={handleChange} />
+        <input name="venituri" type="text" onChange={handleChange} />
 
         <label>Nume complet</label>
-        <input name="nume" type="text" placeholder="Ex: Popescu Andrei"
-          onChange={handleChange} />
+        <input name="nume" type="text" onChange={handleChange} />
 
         <label>Telefon</label>
-        <input name="telefon" type="tel" placeholder="07xxxxxxxx"
-          onChange={handleChange} />
+        <input name="telefon" type="tel" onChange={handleChange} />
 
         <label>Localitate domiciliu</label>
-        <input name="localitate" type="text" placeholder="Ex: Com. Corunca, Jud. Mureș"
-          onChange={handleChange} />
+        <input name="localitate" type="text" onChange={handleChange} />
 
         <label>Sunteți angajat de minim 3 luni?</label>
         <div className="check-row">
@@ -51,21 +54,17 @@ const Finantare = () => {
           <label><input type="radio" name="angajat3luni" value="Nu" onChange={handleChange}/> Nu</label>
         </div>
 
-        <label>Aveți restanțe sau istoric negativ?</label>
+        <label>Aveți restanțe / istoric negativ?</label>
         <div className="check-row">
           <label><input type="radio" name="istoricNegativ" value="Da" onChange={handleChange}/> Da</label>
           <label><input type="radio" name="istoricNegativ" value="Nu" onChange={handleChange}/> Nu</label>
         </div>
 
         <label>Mașina pentru care aplicați</label>
-        <input name="masina" type="text" placeholder="Model mașină dorită"
-          onChange={handleChange} />
+        <input name="masina" type="text" onChange={handleChange} />
 
-        <button type="submit">Trimite aplicația</button>
+        <button type="submit">📩 Trimite aplicația</button>
       </form>
-      
-
-      
     </div>
   );
 };

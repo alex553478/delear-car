@@ -42,6 +42,29 @@ app.post('/register', (req, res) => {
   saveUsers(users)
   res.json({ message: "Înregistrare reușită", user: newUser })
 })
+// 📁 FINANTARE - Salvare în finantare.json
+const FINANTARE_FILE = './finantare.json';
+if (!fs.existsSync(FINANTARE_FILE)) fs.writeFileSync(FINANTARE_FILE, '[]');
+
+const readFinantari = () => JSON.parse(fs.readFileSync(FINANTARE_FILE));
+const saveFinantari = (data) => fs.writeFileSync(FINANTARE_FILE, JSON.stringify(data, null, 2));
+
+app.post('/finantare', (req, res) => {
+  const data = req.body;
+
+  // validare simpla
+  if (!data.nume || !data.telefon || !data.masina)
+    return res.status(400).json({ message: "Completează câmpurile obligatorii!" });
+
+  const finantari = readFinantari();
+  const id = finantari.length + 1;
+
+  finantari.push({ id, ...data, data_trimitere: new Date().toLocaleString() });
+  saveFinantari(finantari);
+
+  res.json({ message: "Cererea a fost salvată 📁", id });
+});
+
 
 // LOGIN
 app.post('/login', (req, res) => {
