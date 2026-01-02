@@ -65,6 +65,14 @@ app.post('/finantare', (req, res) => {
   res.json({ message: "Cererea a fost salvată 📁", id });
 });
 
+// Sugestii
+const SUGESTII_FILE = './sugestii.json';
+
+if (!fs.existsSync(SUGESTII_FILE)) fs.writeFileSync(SUGESTII_FILE, '[]');
+
+const readSugestii = () => JSON.parse(fs.readFileSync(SUGESTII_FILE));
+
+
 
 // LOGIN
 app.post('/login', (req, res) => {
