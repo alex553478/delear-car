@@ -7,6 +7,8 @@ import Contulmeu from "./assets/components/Contulmeu.jsx";
 import Finantare from "./assets/components/finantare.jsx";
 import LeasingCalculator from "./assets/components/caculator.jsx"
 import Contact from "./assets/components/contact.jsx";
+import  Masini from "./assets/components/masinidevanzare.jsx"
+
 
 import { AuthProvider } from "./context/AuthContext";
 
@@ -19,10 +21,12 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="masini" element={<Masini />} />
           <Route path="/contulmeu" element={<Contulmeu />} />
           <Route path="/finantare" element={<Finantare />} />
           <Route path="/calculator" element={<LeasingCalculator />} />
           <Route path="/contact" element={<Contact />}/>
+          
           
         </Routes>
       </Router>
