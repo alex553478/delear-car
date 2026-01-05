@@ -1,6 +1,7 @@
 import React from 'react'
 import "./footer.css"
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -27,7 +28,9 @@ const Footer = () => {
                     <li>Politica de confidențialitate</li>
                     <li>Termeni și condiții</li>
                     <li>Ajutor</li>
-                    <li>Contact</li>
+                    <Link to="/contact">
+                        <li>Contact</li>
+                    </Link>
                 </ul>
             </div>
         </footer>

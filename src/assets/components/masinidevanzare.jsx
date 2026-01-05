@@ -6,22 +6,22 @@ const Masini = () => {
     {
       name: "Porsche",
       info: "€72,000 • 2021 • 15.000 km",
-      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+      img: "https://i.postimg.cc/wTtWsVJL/image-s-1440x0-q-80.jpg",
     },
     {
-      name: "Viper",
+      name: "Dodge SRT Viper",
       info: "€45,000 • 2020 • 32.000 km",
-      img: "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg",
+      img: "https://i.postimg.cc/5ymf5VDp/2013-dodge-srt-viper-gts-main.jpg",
     },
     {
       name: "Lotus",
       info: "€60,000 • 2005 • 25.000 km",
-      img: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg",
+      img: "https://i.postimg.cc/dQhRW006/car-Lotus-Exige-Sport-350-EX-430-PS-Dt-Fahrzeug-1748887079305225880-big-25060219423674002500.jpg",
     },
     {
       name: "BMW M3",
       info: "€100,000 • 2020 • 25.000 km",
-      img: "https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg",
+      img: "https://i.postimg.cc/2yN5FTyr/720x540.webp",
     },
     {
       name: "Audi A5 Break S",
@@ -87,6 +87,26 @@ const Masini = () => {
       img:"https://i.postimg.cc/TYP0vcQq/39b4d027-0b5d-45f0-b8b4-748e16ddc73a-rule-mo-1600.jpg",
       name: "Mazda 6",
       info: "$15,000 - 2015 - 200.000 km",
+    },
+    {
+      img: "https://i.postimg.cc/fT03fCw9/image-s-1440x0-q-80.jpg",
+      name: "Mitsubishi ASX 2.2 DI-D 4WD",
+      info: "Preț vechi 8500 € → 7500 €",
+    },
+    {
+      img: "https://i.postimg.cc/hjCRGsrj/image-s-1000x700.jpg",
+      name: "Range Rover Evoque R-Dynamic",
+      info: "Preț vechi 20000 € → 18000 €",
+    },
+    {
+      img: "https://i.postimg.cc/vZXJhXJv/image-s-1000x700.jpg",
+      name: "Subaru Forester 4x4 Euro 6",
+      info: "Preț vechi 8500 € → 7500 €",
+    },
+    {
+      img: "https://i.postimg.cc/pVqK2jtm/image-s-1000x700.jpg",
+      name: "Mercedes-Benz G Class 270 CDI",
+      info: "Preț vechi 46000 € → 40000 €",
     }
     
   ];

@@ -1,27 +1,29 @@
 import React, { useEffect } from 'react'
 import './featured.css'
+import { Link } from "react-router-dom";
+
 
 const Featured = () => {
   const cars = [
     {
       name: "Porsche",
       info: "€72,000 • 2021 • 15.000 km",
-      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+      img: "https://i.postimg.cc/wTtWsVJL/image-s-1440x0-q-80.jpg",
     },
     {
       name: "Viper",
       info: "€45,000 • 2020 • 32.000 km",
-      img: "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg",
+      img: "https://i.postimg.cc/5ymf5VDp/2013-dodge-srt-viper-gts-main.jpg",
     },
     {
       name: "Lotus",
       info: "€60,000 • 2005 • 25.000 km",
-      img: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg",
+      img: "https://i.postimg.cc/dQhRW006/car-Lotus-Exige-Sport-350-EX-430-PS-Dt-Fahrzeug-1748887079305225880-big-25060219423674002500.jpg",
     },
     {
       name: "BMW M3",
       info: "€100,000 • 2020 • 25.000 km",
-      img: "https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg",
+      img: "https://i.postimg.cc/2yN5FTyr/720x540.webp",
     },
     {
       name: "Audi A5 Break S",
@@ -73,8 +75,11 @@ const Featured = () => {
         <div className="steps-container">
 
           <div className="step-card">
-            <span className="step-number">01</span>
-            <span className="step-icon">📄</span>
+
+            <Link to="/finantare" classItem="icon-item">
+              <span className="step-number">01</span>
+              <span className="step-icon">📄</span>
+            </Link>
             <h3>Completezi formularul de rate</h3>
           </div>
 
@@ -95,9 +100,11 @@ const Featured = () => {
             <span className="step-icon">📦</span>
             <h3>Livrăm gratuit</h3>
           </div>
-
+         
         </div>
+        
       </div>
+      
 
 
     </div>
