@@ -84,8 +84,10 @@ const Featured = () => {
           </div>
 
           <div className="step-card">
-            <span className="step-number">02</span>
-            <span className="step-icon">🚗</span>
+            <Link to="/masini" classItem="icon-item">
+              <span className="step-number">02</span>
+              <span className="step-icon">🚗</span>
+            </Link>
             <h3>Alegi mașina dorită</h3>
           </div>
 
@@ -100,11 +102,11 @@ const Featured = () => {
             <span className="step-icon">📦</span>
             <h3>Livrăm gratuit</h3>
           </div>
-         
+
         </div>
-        
+
       </div>
-      
+
 
 
     </div>

@@ -25,7 +25,8 @@ const Footer = () => {
                 <h3>Link-uri utile</h3>
                 <ul>
                     <li>Despre noi</li>
-                    <li>Politica de confidențialitate</li>
+                    <li>Cariere</li>
+                    <li>Politica de confidentialitate</li>
                     <li>Termeni și condiții</li>
                     <li>Ajutor</li>
                     <Link to="/contact">

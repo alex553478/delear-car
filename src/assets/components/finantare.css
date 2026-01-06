@@ -65,3 +65,102 @@
 .finantare-form button:hover {
   background: #e03939;
 }
+.finantare-parteneri{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f4f6fb;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  
+}
+.finantare-parteneri img{
+  width: 320px;
+  height: 100px;
+  border-radius: 5px;
+}
+.newsletter-banner {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 60px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.newsletter-content {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  z-index: 2;
+}
+
+.newsletter-content h3 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.newsletter-content p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #ddd;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: none;
+  width: 250px;
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  background: #ff6600;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.newsletter-form button:hover {
+  background: #e65c00;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .newsletter-banner {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .newsletter-content h3 {
+    font-size: 26px;
+  }
+}
