@@ -13,7 +13,7 @@ const Finantare = () => {
   });
 
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value});
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -35,7 +35,7 @@ const Finantare = () => {
       <p>Completează formularul pentru verificarea eligibilității</p>
 
       <form className="finantare-form" onSubmit={handleSubmit}>
-        
+
         <label>Informații venituri</label>
         <input name="venituri" type="text" onChange={handleChange} />
 
@@ -50,14 +50,14 @@ const Finantare = () => {
 
         <label>Sunteți angajat de minim 3 luni?</label>
         <div className="check-row">
-          <label><input type="radio" name="angajat3luni" value="Da" onChange={handleChange}/> Da</label>
-          <label><input type="radio" name="angajat3luni" value="Nu" onChange={handleChange}/> Nu</label>
+          <label><input type="radio" name="angajat3luni" value="Da" onChange={handleChange} /> Da</label>
+          <label><input type="radio" name="angajat3luni" value="Nu" onChange={handleChange} /> Nu</label>
         </div>
 
         <label>Aveți restanțe / istoric negativ?</label>
         <div className="check-row">
-          <label><input type="radio" name="istoricNegativ" value="Da" onChange={handleChange}/> Da</label>
-          <label><input type="radio" name="istoricNegativ" value="Nu" onChange={handleChange}/> Nu</label>
+          <label><input type="radio" name="istoricNegativ" value="Da" onChange={handleChange} /> Da</label>
+          <label><input type="radio" name="istoricNegativ" value="Nu" onChange={handleChange} /> Nu</label>
         </div>
 
         <label>Mașina pentru care aplicați</label>
@@ -65,46 +65,46 @@ const Finantare = () => {
 
         <button type="submit">📩 Trimite aplicația</button>
       </form>
-      <div className ="finantare-parteneri">
+      <div className="finantare-parteneri">
         <h3>Parteneri pentru finantare</h3>
-        <div className ="TBI-Pay">
+        <div className="TBI-Pay">
           <img src="https://i.postimg.cc/26pKmkXc/TBI-Pay.png" alt="TBI-Pay" />
           <h3>TBI Pay</h3>
           <p>Doar 10 minute din timpul tau, cartea de identitate la indemana si mașina poate fi a ta</p>
         </div>
-        <div className ="Cetelem">
+        <div className="Cetelem">
           <img src="https://i.postimg.cc/fLRn1Ttz/credit-online-cetelem.webp" alt="Cetelem" />
           <h3>Cetelem</h3>
           <p>Stim cat de important este timpul pentru tine, de aceea nu te punem pe drumuri, ci iti punem la dispozitie metode prin care poti aplica online sau telefonic, rapid si sigur.</p>
         </div>
-        <div className ="Cetelem">
+        <div className="Cetelem">
           <img src="https://i.postimg.cc/1tr0VsJF/images-1.png" alt="BT Direct" />
           <h3>BT Direct</h3>
           <p>Un serviciu Banca Transilvania, BT Direct se adresează tuturor clienților care doresc să achiziționeze un autoturism în rate.</p>
         </div>
       </div>
       <section
-      className="newsletter-banner"
-      style={{
-        backgroundImage:
-          "url('https://i.postimg.cc/zBM9Pssb/peugeot-208.jpg')",
-      }}
-    >
-      <div className="newsletter-overlay"></div>
+        className="newsletter-banner"
+        style={{
+          backgroundImage:
+            "url('https://i.postimg.cc/zBM9Pssb/peugeot-208.jpg')",
+        }}
+      >
+        <div className="newsletter-overlay"></div>
 
-      <div className="newsletter-content">
-        <h3>Abonează-te la newsletter</h3>
-        <p>
-          Dacă vrei să primești notificări despre ofertele noastre,
-          abonează-te aici
-        </p>
+        <div className="newsletter-content">
+          <h3>Abonează-te la newsletter</h3>
+          <p>
+            Dacă vrei să primești notificări despre ofertele noastre,
+            abonează-te aici
+          </p>
 
-        <div className="newsletter-form">
-          <input type="email" placeholder="Email" />
-          <button type="submit">Abonează-te</button>
+          <div className="newsletter-form">
+            <input type="email" placeholder="Email" />
+            <button type="submit">Abonează-te</button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "./footer.css"
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 const Footer = () => {
     return (
         <footer className="footer">
@@ -24,9 +25,13 @@ const Footer = () => {
             <div className="footer-col">
                 <h3>Link-uri utile</h3>
                 <ul>
-                    <li>Despre noi</li>
+                    <Link to="/desprenoi">
+                        <li>Despre noi</li>
+                    </Link>
                     <li>Cariere</li>
-                    <li>Politica de confidentialitate</li>
+                    <Link to="/pdc">
+                        <li>Politica de confidentialitate</li>
+                    </Link>
                     <li>Termeni și condiții</li>
                     <li>Ajutor</li>
                     <Link to="/contact">
