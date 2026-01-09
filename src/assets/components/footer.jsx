@@ -28,12 +28,18 @@ const Footer = () => {
                     <Link to="/desprenoi">
                         <li>Despre noi</li>
                     </Link>
-                    <li>Cariere</li>
+                    <Link to="/cariere">
+                        <li>Cariere</li>
+                    </Link>
                     <Link to="/pdc">
                         <li>Politica de confidentialitate</li>
                     </Link>
-                    <li>Termeni și condiții</li>
-                    <li>Ajutor</li>
+                    <Link to="/tc">
+                        <li>Termeni și condiții</li>
+                    </Link>
+                    <Link to="/qanda">
+                        <li>Ajutor</li>
+                    </Link>
                     <Link to="/contact">
                         <li>Contact</li>
                     </Link>

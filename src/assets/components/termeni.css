@@ -1,0 +1,72 @@
+.termeni-container {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+/* BANNER */
+.termeni-banner {
+  position: relative;
+  height: 300px;
+  background-image: url("https://i.postimg.cc/zBM9Pssb/peugeot-208.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.termeni-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.termeni-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.termeni-content h3 {
+  font-size: 36px;
+  text-align: center;
+}
+
+/* TEXT */
+.termeni-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  line-height: 1.85;
+}
+
+.termeni-section h4 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #111;
+}
+
+.termeni-section p {
+  color: #555;
+  font-size: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .termeni-banner {
+    height: 210px;
+  }
+
+  .termeni-content h3 {
+    font-size: 26px;
+  }
+
+  .termeni-section {
+    padding: 40px 16px;
+  }
+
+  .termeni-section h4 {
+    font-size: 18px;
+  }
+}

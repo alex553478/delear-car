@@ -11,6 +11,9 @@ import  Masini from "./assets/components/masinidevanzare.jsx";
 import Oferte from "./assets/components/oferte.jsx"
 import DespreNoi  from "./assets/components/desprenoi.jsx";
 import PDC from "./assets/components/pdc.jsx";
+import Termeni from "./assets/components/tc.jsx";
+import Qanda from "./assets/components/qanda.jsx";
+import Cariere from "./assets/components/cariere.jsx";
 
 import { AuthProvider } from "./context/AuthContext";
 
@@ -31,6 +34,9 @@ const App = () => {
           <Route path="/oferte" element={<Oferte />} />
           <Route path="/desprenoi" element={<DespreNoi />} />
           <Route path="/pdc" element={<PDC />} />
+          <Route path="/tc" element={<Termeni />} />
+          <Route path="/qanda" element={<Qanda />} />
+          <Route path="/cariere" element={<Cariere />} /> 
           
           
           
