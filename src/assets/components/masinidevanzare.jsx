@@ -1,5 +1,6 @@
 import React from "react";
 import "./masini.css";
+import Footer from "./footer.jsx";
 
 const Masini = () => {
   const cars = [
@@ -127,6 +128,7 @@ const Masini = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

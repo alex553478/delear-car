@@ -1,5 +1,6 @@
 import React from "react";
 import "./masini.css";
+import Footer from "./footer";
 
 
  const Oferte = () => {
@@ -42,6 +43,7 @@ import "./masini.css";
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

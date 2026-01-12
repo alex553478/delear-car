@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./finantare.css";
+import Footer from "./footer.jsx";
 
 const Finantare = () => {
   const [form, setForm] = useState({
@@ -9,7 +10,9 @@ const Finantare = () => {
     localitate: "",
     angajat3luni: "",
     istoricNegativ: "",
-    masina: ""
+    masina: "",
+    partener: ""
+
   });
 
   const handleChange = (e) => {
@@ -62,6 +65,13 @@ const Finantare = () => {
 
         <label>Mașina pentru care aplicați</label>
         <input name="masina" type="text" onChange={handleChange} />
+        <label>Alege partener de finanțare</label>
+        <select name="partener" onChange={handleChange}>
+          <option value="">Selectează</option>
+          <option value="TBI Pay">TBI Pay</option>
+          <option value="Cetelem">Cetelem</option>
+          <option value="BT Direct">BT Direct</option>
+        </select>
 
         <button type="submit">📩 Trimite aplicația</button>
       </form>
@@ -105,6 +115,7 @@ const Finantare = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

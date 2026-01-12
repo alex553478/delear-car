@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaFacebook, FaTiktok } from "react-icons/fa6";
 import "./contact.css";
+import Footer from "./footer.jsx";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -89,6 +90,7 @@ const Contact = () => {
           <FaTiktok />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

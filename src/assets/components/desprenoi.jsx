@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./desprenoi.css";
 
+
 const DespreNoi = () => {
   const images = [
     {
@@ -115,6 +116,7 @@ const DespreNoi = () => {
           </div>
         </div>
       </section>
+      
     </div>
   );
 };

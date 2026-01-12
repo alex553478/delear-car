@@ -69,7 +69,7 @@ app.post("/login", (req, res) => {
 });
 
 /* =======================
-   FINANȚARE
+   FINANȚARE (UPDATE FINAL)
 ======================= */
 
 const FINANTARE_FILE = "./finantare.json";
@@ -90,12 +90,12 @@ app.post("/finantare", (req, res) => {
     angajat3luni,
     istoricNegativ,
     masina,
+    partener
   } = req.body;
 
+  // Validare minima
   if (!nume || !telefon || !masina)
-    return res
-      .status(400)
-      .json({ message: "Completează câmpurile obligatorii" });
+    return res.status(400).json({ message: "Completează câmpurile obligatorii" });
 
   const finantari = readFinantari();
 
@@ -108,6 +108,7 @@ app.post("/finantare", (req, res) => {
     angajat3luni,
     istoricNegativ,
     masina,
+    partener: partener || null,
     data: new Date().toISOString(),
   };
 
@@ -116,6 +117,7 @@ app.post("/finantare", (req, res) => {
 
   res.json({ message: "Cererea de finanțare a fost salvată 💸" });
 });
+
 
 /* =======================
    SUGESTII / CONTACT

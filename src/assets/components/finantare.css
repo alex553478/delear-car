@@ -49,6 +49,14 @@
   gap: 20px;
   margin-bottom: 10px;
 }
+.finantare-form select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  margin-bottom: 14px;
+  outline: none;
+}
 
 .finantare-form button {
   margin-top: 15px;

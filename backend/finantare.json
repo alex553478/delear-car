@@ -1,13 +1,14 @@
 [
   {
     "id": 1,
-    "venituri": "7000 Lei",
-    "nume": "Vasilescu M",
-    "telefon": "0745698892",
-    "localitate": "Ploiesti",
-    "angajat3luni": "Da",
+    "venituri": "8000",
+    "nume": "Vasili",
+    "telefon": "0750489549",
+    "localitate": "Iasi",
+    "angajat3luni": "Nu",
     "istoricNegativ": "Nu",
-    "masina": "BMW X3 2007",
-    "data_trimitere": "01/01/2026, 21:44:49"
+    "masina": "Dacia Duster",
+    "partener": "Cetelem",
+    "data": "2026-01-12T19:15:38.079Z"
   }
 ]

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./calculator.css";
+import Footer from "./footer.jsx";
 
 const LeasingCalculator = () => {
   const [data, setData] = useState({
@@ -58,6 +59,7 @@ const LeasingCalculator = () => {
           <h3>Rata lunară estimată: <span>{rata} €</span></h3>
         </div>
       )}
+      <Footer />
     </div>
   );
 };
