@@ -39,6 +39,11 @@ app.post("/register", (req, res) => {
     phone,
     username,
     password,
+    email: "",
+    adresa: "",
+    oras: "",
+    judet: "",
+    iban: ""
   };
 
   users.push(newUser);
@@ -58,18 +63,74 @@ app.post("/login", (req, res) => {
   if (user.password !== password)
     return res.status(401).json({ message: "Parolă greșită" });
 
+  // trimitem user-ul complet ca să avem toate câmpurile în profil
   res.json({
     message: "Login reușit",
-    user: {
-      id: user.id,
-      name: user.name,
-      username: user.username,
-    },
+    user
   });
 });
 
 /* =======================
-   FINANȚARE (UPDATE FINAL)
+   PROFIL (UPDATE / DELETE)
+======================= */
+
+// UPDATE PROFIL
+app.put("/update-profile", (req, res) => {
+  const users = readUsers();
+  const { id, ...rest } = req.body;
+
+  const index = users.findIndex((u) => u.id === id);
+  if (index === -1)
+    return res.status(404).json({ message: "User negăsit" });
+
+  users[index] = {
+    ...users[index],
+    ...rest
+  };
+
+  saveUsers(users);
+
+  res.json({
+    message: "Profil actualizat ✔",
+    user: users[index]
+  });
+});
+
+// ALIAS ca să nu mai iei 404 dacă ai rămas cu /update-user pe undeva
+app.put("/update-user", (req, res) => {
+  const users = readUsers();
+  const { id, ...rest } = req.body;
+
+  const index = users.findIndex((u) => u.id === id);
+  if (index === -1)
+    return res.status(404).json({ message: "User negăsit" });
+
+  users[index] = {
+    ...users[index],
+    ...rest
+  };
+
+  saveUsers(users);
+
+  res.json({
+    message: "Profil actualizat ✔",
+    user: users[index]
+  });
+});
+
+// DELETE PROFIL (șterge contul)
+app.delete("/delete-profile", (req, res) => {
+  const users = readUsers();
+  const { id } = req.body;
+
+  const filtered = users.filter((u) => u.id !== id);
+  saveUsers(filtered);
+
+  res.json({ message: "Profil șters definitiv 🗑" });
+});
+
+/* =======================
+   FINANȚARE
 ======================= */
 
 const FINANTARE_FILE = "./finantare.json";
@@ -93,7 +154,6 @@ app.post("/finantare", (req, res) => {
     partener
   } = req.body;
 
-  // Validare minima
   if (!nume || !telefon || !masina)
     return res.status(400).json({ message: "Completează câmpurile obligatorii" });
 
@@ -117,7 +177,6 @@ app.post("/finantare", (req, res) => {
 
   res.json({ message: "Cererea de finanțare a fost salvată 💸" });
 });
-
 
 /* =======================
    SUGESTII / CONTACT

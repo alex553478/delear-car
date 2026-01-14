@@ -191,6 +191,20 @@ button {
 .save-btn:hover {
   background: #0f64d4;
 }
+.delete-btn {
+  background: #ba1a1a;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.delete-btn:hover {
+  background: #9e1111;
+}
 
 .logout-btn {
   margin-top: 18px;

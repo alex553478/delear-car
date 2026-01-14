@@ -15,6 +15,7 @@ import Termeni from "./assets/components/tc.jsx";
 import Qanda from "./assets/components/qanda.jsx";
 import Cariere from "./assets/components/cariere.jsx";
 
+
 import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/tc" element={<Termeni />} />
           <Route path="/qanda" element={<Qanda />} />
           <Route path="/cariere" element={<Cariere />} /> 
+           
           
           
           
