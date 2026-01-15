@@ -130,7 +130,7 @@ app.delete("/delete-profile", (req, res) => {
 });
 
 /* =======================
-   FINANȚARE
+   FINANȚARE CU SCORING
 ======================= */
 
 const FINANTARE_FILE = "./finantare.json";
@@ -142,6 +142,49 @@ const readFinantari = () =>
 const saveFinantari = (data) =>
   fs.writeFileSync(FINANTARE_FILE, JSON.stringify(data, null, 2));
 
+// robot de scoring bancar
+function scorBancar(data) {
+  let score = 0;
+  const venit = parseInt(data.venituri) || 0;
+  const pret = parseInt(data.pretMasina) || 0;
+
+  // Venit
+  if (venit < 2200) score -= 3;
+  else if (venit < 3000) score += 0;
+  else if (venit < 4500) score += 2;
+  else score += 4;
+
+  // Stabilitate job
+  if (data.angajat3luni === "Da") score += 2;
+  else score -= 2;
+
+  // Istoric negativ
+  if (data.istoricNegativ === "Nu") score += 3;
+  else score -= 4;
+
+  // Partener finanțare
+  if (data.partener === "BT Direct") score += 2;
+  if (data.partener === "TBI Pay") score += 1;
+  // Cetelem rămâne 0
+
+  // Raport preț / venit (cam ca grad de îndatorare)
+  if (pret > 0 && venit > 0) {
+    const multiplu = pret / venit;
+    if (multiplu <= 6) score += 3;
+    else if (multiplu <= 10) score += 1;
+    else score -= 3;
+  }
+
+  return score;
+}
+
+function decizieFinala(score) {
+  if (score >= 6) return "aprobat";
+  if (score >= 3) return "analiza";
+  return "respins";
+}
+
+// trimite cererea + scor + status
 app.post("/finantare", (req, res) => {
   const {
     venituri,
@@ -151,7 +194,8 @@ app.post("/finantare", (req, res) => {
     angajat3luni,
     istoricNegativ,
     masina,
-    partener
+    partener,
+    pretMasina
   } = req.body;
 
   if (!nume || !telefon || !masina)
@@ -159,8 +203,7 @@ app.post("/finantare", (req, res) => {
 
   const finantari = readFinantari();
 
-  const newFinantare = {
-    id: finantari.length + 1,
+  const scoringData = {
     venituri,
     nume,
     telefon,
@@ -168,15 +211,106 @@ app.post("/finantare", (req, res) => {
     angajat3luni,
     istoricNegativ,
     masina,
-    partener: partener || null,
-    data: new Date().toISOString(),
+    partener,
+    pretMasina
+  };
+
+  const score = scorBancar(scoringData);
+  const status = decizieFinala(score);
+
+  const newFinantare = {
+    id: finantari.length + 1,
+    ...scoringData,
+    score,
+    status,
+    dataCerere: new Date().toISOString()
   };
 
   finantari.push(newFinantare);
   saveFinantari(finantari);
 
-  res.json({ message: "Cererea de finanțare a fost salvată 💸" });
+  res.json({
+    message:
+      status === "aprobat"
+        ? "Cererea a fost aprobată automat ✔"
+        : status === "respins"
+          ? "Cererea a fost respinsă automat ❌"
+          : "Cererea este trimisă spre analiză 📋",
+    status,
+    score
+  });
 });
+
+// LISTĂ pentru panel admin
+app.get("/finantari", (req, res) => {
+  const finantari = readFinantari();
+  res.json(finantari);
+});
+
+// UPDATE STATUS manual din panel admin
+app.put("/finantari/:id/status", (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  const finantari = readFinantari();
+  const index = finantari.findIndex(f => f.id === Number(id));
+
+  if (index === -1)
+    return res.status(404).json({ message: "Cerere negăsită" });
+
+  finantari[index].status = status;
+  saveFinantari(finantari);
+
+  res.json({
+    message: `Status actualizat la ${status}`,
+    cerere: finantari[index]
+  });
+});
+/* =======================
+   TEST DRIVE
+======================= */
+
+const TESTDRIVE_FILE = "./testdrive.json";
+if (!fs.existsSync(TESTDRIVE_FILE)) fs.writeFileSync(TESTDRIVE_FILE, "[]");
+
+const readTestdrive = () =>
+  JSON.parse(fs.readFileSync(TESTDRIVE_FILE, "utf8"));
+
+const saveTestdrive = (data) =>
+  fs.writeFileSync(TESTDRIVE_FILE, JSON.stringify(data, null, 2));
+app.post("/testdrive", (req, res) => {
+  const { nume, telefon, email, masina, data, interval, mentiuni } = req.body;
+
+  if (!nume || !telefon || !masina || !data || !interval) {
+    return res
+      .status(400)
+      .json({ message: "Completează câmpurile obligatorii" });
+  }
+
+  const cereri = readTestdrive();
+
+  const newCerere = {
+    id: cereri.length + 1,
+    nume,
+    telefon,
+    email: email || "",
+    masina,
+    data,
+    interval,
+    mentiuni: mentiuni || "",
+    status: "in_asteptare",
+    createdAt: new Date().toISOString()
+  };
+
+  cereri.push(newCerere);
+  saveTestdrive(cereri);
+
+  res.json({
+    message: "Cererea ta de test drive a fost trimisă. Te vom contacta pentru confirmare 📞",
+    cerere: newCerere
+  });
+});
+
 
 /* =======================
    SUGESTII / CONTACT

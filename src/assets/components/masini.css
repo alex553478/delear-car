@@ -66,3 +66,61 @@
 .masina-info button:hover {
   background: darkorange;
 }
+.test-drive {
+  width: 100%;
+  padding: 25px 20px;
+  margin: 30px auto;
+  background: linear-gradient(135deg, #111, #222);
+  border-radius: 14px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.test-drive p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.test-drive button {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+.test-drive button:hover {
+  background: #c51d2c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(230,57,70,0.35);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .test-drive {
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .test-drive p {
+    font-size: 16px;
+  }
+
+  .test-drive button {
+    width: 100%;
+  }
+}

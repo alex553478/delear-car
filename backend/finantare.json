@@ -1,14 +1,45 @@
 [
+ 
   {
-    "id": 1,
+    "id": 2,
     "venituri": "8000",
-    "nume": "Vasili",
+    "nume": "Vasilescu M",
     "telefon": "0750489549",
-    "localitate": "Iasi",
-    "angajat3luni": "Nu",
+    "localitate": "Ploiesti",
+    "angajat3luni": "Da",
     "istoricNegativ": "Nu",
     "masina": "Dacia Duster",
+    "partener": "TBI Pay",
+    "score": 10,
+    "status": "aprobat",
+    "dataCerere": "2026-01-15T20:38:51.223Z"
+  },
+  {
+    "id": 3,
+    "venituri": "700",
+    "nume": "ion ion",
+    "telefon": "0740545647",
+    "localitate": "iasi",
+    "angajat3luni": "Nu",
+    "istoricNegativ": "Da",
+    "masina": "subaru xv",
+    "partener": "BT Direct",
+    "score": -7,
+    "status": "respins",
+    "dataCerere": "2026-01-15T20:39:57.775Z"
+  },
+  {
+    "id": 4,
+    "venituri": "700",
+    "nume": "costel",
+    "telefon": "0750654981",
+    "localitate": "targoviste",
+    "angajat3luni": "Da",
+    "istoricNegativ": "Da",
+    "masina": "dacia mcv",
     "partener": "Cetelem",
-    "data": "2026-01-12T19:15:38.079Z"
+    "score": -5,
+    "status": "respins",
+    "dataCerere": "2026-01-15T20:42:17.201Z"
   }
 ]

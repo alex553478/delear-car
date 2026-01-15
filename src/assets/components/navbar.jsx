@@ -31,6 +31,7 @@ const Navbar = () => {
         <Link to="/calculator" className="icon-item">
           Calculator Rate
         </Link>
+        
 
         <Link to="/contulmeu" className="icon-item account-link">
           <MdAccountBox />

@@ -14,6 +14,8 @@ import PDC from "./assets/components/pdc.jsx";
 import Termeni from "./assets/components/tc.jsx";
 import Qanda from "./assets/components/qanda.jsx";
 import Cariere from "./assets/components/cariere.jsx";
+import TestDrive  from "./assets/components/testdrive.jsx";
+
 
 
 import { AuthProvider } from "./context/AuthContext";
@@ -38,6 +40,8 @@ const App = () => {
           <Route path="/tc" element={<Termeni />} />
           <Route path="/qanda" element={<Qanda />} />
           <Route path="/cariere" element={<Cariere />} /> 
+          <Route path="/testdrive" element={<TestDrive />} />
+          
            
           
           
