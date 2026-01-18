@@ -3,6 +3,7 @@ import "./masini.css";
 import Footer from "./footer.jsx";
 import { Link } from "react-router-dom";
 
+
 const Masini = () => {
   const cars = [
     {
@@ -114,6 +115,10 @@ const Masini = () => {
     }
 
   ];
+  const slugify = (str) =>
+    str.toLowerCase()
+      .replace(/[^\w\s]/gi, "")
+      .replace(/\s+/g, "-");
 
   return (
     <div className="masini-page">
@@ -126,7 +131,9 @@ const Masini = () => {
             <div className="masina-info">
               <h3>{car.name}</h3>
               <p>{car.info}</p>
-              <button>Vezi detalii</button>
+              <Link to={`/masina/${slugify(car.name)}`}>
+                <button>Vezi detalii</button>
+              </Link>
             </div>
           </div>
         ))}
