@@ -5,5 +5,17 @@
     "phone": "0720918295",
     "username": "alexmarian3478",
     "password": "$2b$10$H7oQYcPePIOjPRcjaDV2sO8kABRaR4AuPmXH69RnUlW0DcaUm5qse"
+  },
+  {
+    "id": 2,
+    "name": "Marian",
+    "phone": "0744565876",
+    "username": "alexica",
+    "password": "1234",
+    "email": "",
+    "adresa": "",
+    "oras": "",
+    "judet": "",
+    "iban": ""
   }
 ]

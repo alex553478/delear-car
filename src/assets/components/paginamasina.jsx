@@ -16,6 +16,9 @@ import PaginaLogan2 from "./logan2.jsx";
 import PaginaSandero from "./sandero.jsx";
 import PaginaMazda6 from "./mazda6.jsx";
 import PaginaAsx from "./asx.jsx";
+import PaginaRange from "./range.jsx";
+import PaginaSubaru from "./subaru.jsx";
+import PaginaG270 from "./g270.jsx";
 
 
 const PaginaMasina = () => {
@@ -38,6 +41,9 @@ const PaginaMasina = () => {
   if (slug === "dacia-sandero-stepway-15-dci") return <PaginaSandero />;
   if (slug === "mazda-6") return <PaginaMazda6/>;
   if (slug === "mitsubishi-asx-22-did-4wd") return <PaginaAsx/>;
+  if (slug === "range-rover-evoque-rdynamic") return <PaginaRange/>;
+  if (slug === "subaru-forester-4x4-euro-6") return <PaginaSubaru/>;
+  if (slug === "mercedesbenz-g-class-270-cdi") return <PaginaG270/>;
   
 
 

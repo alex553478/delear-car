@@ -1,5 +1,4 @@
 [
- 
   {
     "id": 2,
     "venituri": "8000",
@@ -41,5 +40,33 @@
     "score": -5,
     "status": "respins",
     "dataCerere": "2026-01-15T20:42:17.201Z"
+  },
+  {
+    "id": 4,
+    "venituri": "7000 Lei",
+    "nume": "Vasili",
+    "telefon": "0750489549",
+    "localitate": "Ploiesti",
+    "angajat3luni": "Nu",
+    "istoricNegativ": "Da",
+    "masina": "Dacia Duster",
+    "partener": "Cetelem",
+    "score": -2,
+    "status": "respins",
+    "dataCerere": "2026-01-23T06:47:40.193Z"
+  },
+  {
+    "id": 5,
+    "venituri": "7000 Lei",
+    "nume": "Vasili",
+    "telefon": "0750489549",
+    "localitate": "Iasi",
+    "angajat3luni": "Da",
+    "istoricNegativ": "Nu",
+    "masina": "BMW X3 2007",
+    "partener": "BT Direct",
+    "score": 11,
+    "status": "aprobat",
+    "dataCerere": "2026-01-23T06:53:41.468Z"
   }
 ]

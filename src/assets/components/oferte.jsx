@@ -1,9 +1,9 @@
 import React from "react";
 import "./masini.css";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
-
- const Oferte = () => {
+const Oferte = () => {
   const cars = [
     {
       img: "https://i.postimg.cc/fT03fCw9/image-s-1440x0-q-80.jpg",
@@ -27,9 +27,15 @@ import Footer from "./footer";
     },
   ];
 
+  const slugify = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^\w\s]/gi, "")
+      .replace(/\s+/g, "-");
+
   return (
     <div className="masini-page">
-      <h1>🚗 Mașini de vânzare</h1>
+      <h1>🔥 Oferte Speciale</h1>
 
       <div className="masini-grid">
         {cars.map((car, index) => (
@@ -38,15 +44,18 @@ import Footer from "./footer";
             <div className="masina-info">
               <h3>{car.name}</h3>
               <p>{car.info}</p>
-              <button>Vezi detalii</button>
+
+              <Link to={`/masina/${slugify(car.name)}`}>
+                <button>Vezi detalii</button>
+              </Link>
             </div>
           </div>
         ))}
       </div>
+
       <Footer />
     </div>
   );
 };
 
 export default Oferte;
-

@@ -313,25 +313,27 @@ app.post("/testdrive", (req, res) => {
 
 
 /* =======================
-   SUGESTII / CONTACT
+   SUGESTII / CONTACT FIX
 ======================= */
 
 const SUGESTII_FILE = "./sugestii.json";
 if (!fs.existsSync(SUGESTII_FILE)) fs.writeFileSync(SUGESTII_FILE, "[]");
 
-const readSugestii = () =>
-  JSON.parse(fs.readFileSync(SUGESTII_FILE, "utf8"));
-
-const saveSugestii = (data) =>
-  fs.writeFileSync(SUGESTII_FILE, JSON.stringify(data, null, 2));
+const readSugestii = () => JSON.parse(fs.readFileSync(SUGESTII_FILE, "utf8"));
+const saveSugestii = (data) => fs.writeFileSync(SUGESTII_FILE, JSON.stringify(data, null, 2));
 
 app.post("/sugestii", (req, res) => {
-  const { nume, email, subiect, mesaj } = req.body;
+  let { nume, email, subiect, mesaj } = req.body;
 
-  if (!nume || !email || !mesaj)
-    return res
-      .status(400)
-      .json({ message: "Completează câmpurile obligatorii" });
+  nume = (nume || "").trim();
+  email = (email || "").trim();
+  subiect = (subiect || "").trim();
+  mesaj = (mesaj || "").trim();
+
+  if (!nume) return res.status(400).json({ message: "Numele este obligatoriu" });
+  if (!email) return res.status(400).json({ message: "Email obligatoriu" });
+
+  if (!mesaj) mesaj = "(Mesaj gol)";
 
   const sugestii = readSugestii();
 
@@ -339,7 +341,7 @@ app.post("/sugestii", (req, res) => {
     id: sugestii.length + 1,
     nume,
     email,
-    subiect,
+    subiect: subiect || "Fără subiect",
     mesaj,
     data: new Date().toISOString(),
   };
@@ -347,8 +349,12 @@ app.post("/sugestii", (req, res) => {
   sugestii.push(newSugestie);
   saveSugestii(sugestii);
 
-  res.json({ message: "Sugestia a fost salvată 📩" });
+  return res.json({
+    message: "Sugestia a fost trimisă cu succes 📩",
+    sugestie: newSugestie
+  });
 });
+
 
 /* =======================
    PORNIRE SERVER
